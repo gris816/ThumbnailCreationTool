@@ -7,9 +7,11 @@ const upload = document.getElementById("imageUpload");
 const textInput = document.getElementById("textInput");
 const zoomInput = document.getElementById("zoom");
 
+// 影の不透明度
 let shadowOpacity = 0.3;
 document.getElementById("shadowOpacity").addEventListener("input", e => {
   shadowOpacity = parseFloat(e.target.value);
+  document.getElementById("shadowValue").textContent = shadowOpacity.toFixed(2); // ← 表示更新
   draw();
 });
 
@@ -126,6 +128,7 @@ upload.addEventListener("change", e => {
 textInput.addEventListener("input", draw);
 zoomInput.addEventListener("input", e => {
   scale = parseFloat(e.target.value);
+  document.getElementById("zoomValue").textContent = scale.toFixed(2); // ← 表示更新
   draw();
 });
 
